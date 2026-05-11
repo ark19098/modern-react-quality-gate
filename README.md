@@ -1,25 +1,82 @@
 # Vite + React Strict Boilerplate
 
-A production-ready React starter template designed for maximum developer velocity and zero technical debt. It enforces **shift-left testing** with strict pre-commit hooks, Rust-based static analysis, and a fully automated CI/CD pipeline.
+An opinionated React starter template focused on code quality, fast feedback loops, and maintainable frontend workflows.
 
-## Philosophy
+This boilerplate combines modern frontend tooling with automated quality gates including pre-commit validation, unit testing, end-to-end testing, and CI automation.
 
-This boilerplate acts as a strict **Quality Gate**. Code cannot reach the `main` branch—or production servers—unless it passes formatting, linting, unit logic, and end-to-end user flows. It removes the need to argue about code style in PRs and reserves CI minutes for actual integration testing.
-
-## The Tech Stack
-
-*   **Build Tool:** Vite
-*   **Framework:** React 19 (React Compiler enabled)
-*   **Static Analysis:** Biome (Replaces ESLint + Prettier; Rust-based, runs in ms)
-*   **Unit Testing:** Vitest + JSDOM (Node-based, fast component testing)
-*   **E2E Testing:** Playwright (Full headless browser regression testing)
-*   **Git Hooks:** Husky + lint-staged (Runs analysis *only* on staged files before commit)
-*   **CI/CD:** GitHub Actions (Concurrent jobs for static analysis, tests, and deployment)
+The goal is to provide a clean, production-ready foundation for scalable React applications without spending hours configuring tooling from scratch.
 
 ---
 
-## Getting Started
+# Features
 
-### 1. Install Dependencies
-```bash
-npm install
+- ⚡ Vite-powered development experience
+- ⚛️ React 19 + TypeScript
+- 🦀 Biome for ultra-fast linting and formatting
+- 🧪 Vitest + JSDOM for unit/component testing
+- 🎭 Playwright for end-to-end browser testing
+- 🐶 Husky + lint-staged pre-commit quality checks
+- ☁️ GitHub Actions CI pipeline
+- ✅ Shift-left testing workflow
+- 🚫 Prevents poorly formatted or failing code from being committed
+- 🔥 Fast feedback loops for developers
+
+---
+
+# Philosophy
+
+This boilerplate follows a **shift-left testing** approach:
+issues are caught as early as possible through local hooks, static analysis, and automated CI checks.
+
+The primary goals are:
+
+- maintain consistent code quality
+- reduce avoidable CI failures
+- improve developer experience
+- standardize frontend project setup
+- keep tooling lightweight and maintainable
+
+Instead of relying only on CI after pushing code, this setup validates changes locally before commits are created.
+
+---
+
+# Tech Stack
+
+| Category | Tool |
+|---|---|
+| Build Tool | Vite |
+| Framework | React 19 |
+| Language | TypeScript |
+| Linting & Formatting | Biome |
+| Unit Testing | Vitest + JSDOM |
+| E2E Testing | Playwright |
+| Git Hooks | Husky + lint-staged |
+| CI/CD | GitHub Actions |
+
+---
+
+# Why Biome?
+
+This project uses **Biome** instead of the traditional ESLint + Prettier setup.
+
+Benefits:
+- significantly faster execution
+- near-zero configuration
+- unified formatter + linter
+- simpler maintenance
+- Rust-based performance
+
+For small-to-medium React applications, it provides a cleaner developer experience with less tooling overhead.
+
+---
+
+# Project Structure
+
+```txt
+src/
+├── components/
+├── pages/
+├── hooks/
+├── utils/
+├── tests/
+└── main.tsx
