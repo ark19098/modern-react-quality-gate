@@ -1,10 +1,7 @@
-import type { ReactNode } from "react";
-
 interface TrackerProps {
 	distance: number; // in km
 	label?: string;
 }
-const _x = 20;
 
 export const Tracker = ({ distance, label = "Daily Run" }: TrackerProps) => {
 	return (

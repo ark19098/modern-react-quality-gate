@@ -1,75 +1,25 @@
-# React + TypeScript + Vite
+# Vite + React Strict Boilerplate
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A production-ready React starter template designed for maximum developer velocity and zero technical debt. It enforces **shift-left testing** with strict pre-commit hooks, Rust-based static analysis, and a fully automated CI/CD pipeline.
 
-Currently, two official plugins are available:
+## Philosophy
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This boilerplate acts as a strict **Quality Gate**. Code cannot reach the `main` branch—or production servers—unless it passes formatting, linting, unit logic, and end-to-end user flows. It removes the need to argue about code style in PRs and reserves CI minutes for actual integration testing.
 
-## React Compiler
+## The Tech Stack
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+*   **Build Tool:** Vite
+*   **Framework:** React 19 (React Compiler enabled)
+*   **Static Analysis:** Biome (Replaces ESLint + Prettier; Rust-based, runs in ms)
+*   **Unit Testing:** Vitest + JSDOM (Node-based, fast component testing)
+*   **E2E Testing:** Playwright (Full headless browser regression testing)
+*   **Git Hooks:** Husky + lint-staged (Runs analysis *only* on staged files before commit)
+*   **CI/CD:** GitHub Actions (Concurrent jobs for static analysis, tests, and deployment)
 
-Note: This will impact Vite dev & build performances.
+---
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 1. Install Dependencies
+```bash
+npm install
